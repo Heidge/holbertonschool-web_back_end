@@ -3,21 +3,14 @@
 Module async_generator
 Génère des nombres aléatoires de manière asynchrone.
 """
-
-
+        
 import asyncio
 import random
-from typing import AsyncGenerator
+from typing import Generator
 
 
-async def async_generator() -> AsyncGenerator[float, None]:
-    """
-    Coroutine asynchrone générant 10 nombres
-    flottants aléatoires entre 0 et 10,
-    avec une pause d'une seconde entre chaque génération.
-    """
-
+async def async_generator() -> Generator[float, None, None]:
+    """ async function coroutine random float return """
     for _ in range(10):
-        i = random.uniform(0, 10)
         await asyncio.sleep(1)
-        yield i
+        yield random.uniform(0, 10)
